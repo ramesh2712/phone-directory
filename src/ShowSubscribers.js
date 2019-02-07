@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
 import Header from './Header'
-import './App.css'
+import './ShowSubscribers.css'
 
-class App extends Component {
+class ShowSubscribers extends Component {
 
   clickHandler(message){
     alert(message)
   }
+
   constructor(){
     super();
     this.state = {
       subscribersListShow: []
     }
   }
-
   render() {
-  
     return (
       <div>
         <Header heading="Phone Directory"/>
@@ -28,7 +27,7 @@ class App extends Component {
           </div>
           {
             
-            this.state.subscribersListShow.map(sub => {
+            this.props.subscribersList.map(sub => {
                 return <div key={sub.id} className="grid-container">
                  <span className="grid-item">{sub.name}</span>
                   <span className="grid-item">{sub.phone}</span>
@@ -44,4 +43,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default ShowSubscribers;
